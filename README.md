@@ -46,6 +46,27 @@ Temporarily makes WordPress core, themes, plugins and drop-ins writable by the w
 
 After updates complete, run `lock-wordpress.sh` again.
 
+
+### find-recent-files.sh
+Shows recently changed files inside a WordPress webroot using both file modification time (`mtime`) and metadata change time (`ctime`).
+
+This is useful after plugin/core updates, permission changes or when troubleshooting which files WordPress or a plugin is actively modifying.
+
+Defaults:
+
+- `WEBROOT=/var/www/example.com/public_html`
+- `MINUTES=15`
+- `LIMIT=200`
+
+Example:
+
+```bash
+WEBROOT=/var/www/example.com/public_html \
+MINUTES=60 \
+LIMIT=100 \
+./find-recent-files.sh
+```
+
 ## Layout
 The default example layout is:
 
