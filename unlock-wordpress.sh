@@ -8,6 +8,7 @@ WEBUSER="${WEBUSER:-www-data}"
 WEBGROUP="${WEBGROUP:-www-data}"
 
 CODE_OWNER_USER="${CODE_OWNER_USER:-root}"
+CODE_OWNER_GROUP="${CODE_OWNER_GROUP:-root}"
 
 RUNTIME_DIRS="
 wp-content/uploads
@@ -97,7 +98,7 @@ else
 fi
 
 msg "[3/10] Setting baseline ownership..."
-chown -R "$CODE_OWNER_USER:$CODE_OWNER_USER" "$WEBROOT"
+chown -R "$CODE_OWNER_USER:$CODE_OWNER_GROUP" "$WEBROOT"
 
 msg "[4/10] Granting web write access to runtime directories..."
 for rel in $RUNTIME_DIRS; do
